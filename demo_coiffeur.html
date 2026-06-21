@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio Belle – Coiffeur & Beauty</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rose: #C17B6F;
+      --dark: #1C1410;
+      --warm: #F5EDE8;
+      --taupe: #8B7B74;
+      --cream: #FBF7F4;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--dark); }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(251,247,244,0.95); backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(193,123,111,0.15);
+      padding: 0 5%; height: 70px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--dark); letter-spacing: 0.05em; }
+    .nav-logo span { color: var(--rose); font-style: italic; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { color: var(--taupe); text-decoration: none; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--rose); }
+    .nav-book { background: var(--rose); color: #fff !important; padding: 8px 20px; border-radius: 99px; }
+
+    .hero {
+      min-height: 100vh; padding: 120px 5% 80px;
+      background: linear-gradient(160deg, #1C1410 0%, #3D2820 60%, #C17B6F 100%);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+    }
+    .hero-left { }
+    .hero-badge { display: inline-block; border: 1px solid rgba(193,123,111,0.5); color: rgba(255,255,255,0.7); padding: 6px 20px; border-radius: 99px; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 28px; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 5vw, 70px); color: #fff; line-height: 1.1; margin-bottom: 20px; }
+    .hero h1 em { color: #F4C5BB; font-style: italic; }
+    .hero-sub { font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.8; margin-bottom: 36px; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-rose { background: var(--rose); color: #fff; padding: 14px 28px; border-radius: 99px; text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: 0.05em; transition: opacity 0.2s; }
+    .btn-rose:hover { opacity: 0.85; }
+    .btn-light { border: 1px solid rgba(255,255,255,0.25); color: #fff; padding: 14px 28px; border-radius: 99px; text-decoration: none; font-size: 14px; transition: border-color 0.2s; }
+    .btn-light:hover { border-color: rgba(255,255,255,0.6); }
+    .hero-right { display: flex; flex-direction: column; gap: 16px; }
+    .hero-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; padding: 24px; }
+    .hero-card-icon { font-size: 28px; margin-bottom: 12px; }
+    .hero-card-title { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: #fff; margin-bottom: 6px; }
+    .hero-card-text { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.6; }
+
+    .section { padding: 100px 5%; }
+    .section-tag { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rose); margin-bottom: 12px; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 4vw, 48px); color: var(--dark); line-height: 1.2; margin-bottom: 16px; }
+    .section-sub { font-size: 16px; color: var(--taupe); line-height: 1.8; max-width: 520px; margin-bottom: 56px; }
+
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .service-card { background: #fff; border-radius: 16px; padding: 36px 28px; border: 1px solid rgba(193,123,111,0.15); transition: all 0.2s; }
+    .service-card:hover { border-color: var(--rose); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(193,123,111,0.15); }
+    .service-icon { font-size: 36px; margin-bottom: 20px; }
+    .service-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--dark); margin-bottom: 10px; }
+    .service-desc { font-size: 13px; color: var(--taupe); line-height: 1.7; margin-bottom: 16px; }
+    .service-price { font-size: 14px; color: var(--rose); font-weight: 600; }
+
+    .booking-section { background: var(--warm); border-radius: 24px; padding: 60px; margin: 0 5%; text-align: center; }
+    .booking-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 40px; color: var(--dark); margin-bottom: 12px; }
+    .booking-section p { color: var(--taupe); margin-bottom: 32px; font-size: 16px; }
+    .booking-hours { display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; margin-bottom: 40px; }
+    .hour-item { text-align: center; }
+    .hour-day { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--taupe); margin-bottom: 6px; }
+    .hour-time { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--dark); }
+
+    footer { background: var(--dark); padding: 40px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: #fff; }
+    .footer-logo span { color: var(--rose); font-style: italic; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
+    .ilink-badge { position: fixed; bottom: 20px; right: 20px; background: #185FA5; color: #fff; padding: 8px 16px; border-radius: 99px; font-size: 11px; text-decoration: none; font-family: sans-serif; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Studio <span>Belle</span></div>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Leistungen</a></li>
+    <li><a href="#">Über uns</a></li>
+    <li><a href="#" class="nav-book">Online buchen</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-badge">✦ Coiffeur & Beauty in Zug ✦</div>
+    <h1>Schönheit die<br><em>begeistert</em></h1>
+    <p class="hero-sub">Willkommen in Ihrem Wohlfühlsalon. Wir verwöhnen Sie mit modernsten Techniken und ausgesuchten Produkten.</p>
+    <div class="hero-btns">
+      <a href="#" class="btn-rose">Termin buchen</a>
+      <a href="#" class="btn-light">Leistungen ansehen</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-card">
+      <div class="hero-card-icon">✂️</div>
+      <div class="hero-card-title">Haarschnitt & Styling</div>
+      <p class="hero-card-text">Von klassisch bis modern – wir finden den perfekten Look für Sie.</p>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-icon">🎨</div>
+      <div class="hero-card-title">Coloration & Highlights</div>
+      <p class="hero-card-text">Natürliche und strahlende Farben mit Premium-Produkten.</p>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-icon">💅</div>
+      <div class="hero-card-title">Beauty & Pflege</div>
+      <p class="hero-card-text">Maniküre, Augenbrauen und Wimpernpflege für Ihren perfekten Auftritt.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-tag">Unsere Leistungen</div>
+  <h2 class="section-title">Was wir für Sie tun</h2>
+  <p class="section-sub">Von Haarschnitt bis Beauty – alles unter einem Dach für Ihren perfekten Auftritt.</p>
+  <div class="services-grid">
+    <div class="service-card"><div class="service-icon">✂️</div><div class="service-title">Haarschnitt</div><p class="service-desc">Massgeschneiderte Schnitte für Damen, Herren und Kinder – perfekt abgestimmt auf Ihren Typ.</p><div class="service-price">ab CHF 45.–</div></div>
+    <div class="service-card"><div class="service-icon">🎨</div><div class="service-title">Colorationen</div><p class="service-desc">Tönung, Highlights, Balayage und Ombré – strahlende Farben mit Wella und Schwarzkopf.</p><div class="service-price">ab CHF 80.–</div></div>
+    <div class="service-card"><div class="service-icon">💆</div><div class="service-title">Haarpflege</div><p class="service-desc">Intensive Kuren, Keratinbehandlung und Kopfmassagen für gesundes und glänzendes Haar.</p><div class="service-price">ab CHF 35.–</div></div>
+    <div class="service-card"><div class="service-icon">💅</div><div class="service-title">Beauty</div><p class="service-desc">Maniküre, Gel-Nägel, Augenbrauen zupfen und Wimpern färben für Ihren perfekten Look.</p><div class="service-price">ab CHF 25.–</div></div>
+  </div>
+</section>
+
+<div class="booking-section">
+  <h2>Einfach online buchen</h2>
+  <p>Wählen Sie Ihren Wunschtermin – wir freuen uns auf Sie!</p>
+  <div class="booking-hours">
+    <div class="hour-item"><div class="hour-day">Mo – Fr</div><div class="hour-time">09:00 – 18:30</div></div>
+    <div class="hour-item"><div class="hour-day">Samstag</div><div class="hour-time">09:00 – 16:00</div></div>
+    <div class="hour-item"><div class="hour-day">Sonntag</div><div class="hour-time">Geschlossen</div></div>
+  </div>
+  <a href="#" class="btn-rose">Jetzt Termin buchen</a>
+</div>
+
+<br><br>
+
+<footer>
+  <div class="footer-logo">Studio <span>Belle</span></div>
+  <div class="footer-copy">© 2026 Studio Belle · Hauptstrasse 8 · 6300 Zug</div>
+</footer>
+
+<a href="https://www.i-link.ch" class="ilink-badge">🔗 Website by i-link</a>
+
+</body>
+</html>

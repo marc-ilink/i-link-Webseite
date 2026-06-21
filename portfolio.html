@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio – i-link</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    .portfolio-card { background: var(--white); border: 1px solid #E8E6E0; border-radius: 16px; padding: 36px 32px; transition: transform 0.3s, box-shadow 0.3s; position: relative; overflow: hidden; }
+    .portfolio-card:hover { transform: translateY(-8px); box-shadow: 0 24px 48px rgba(12,35,64,0.12); }
+    .portfolio-badge { position: absolute; top: 16px; right: 16px; background: var(--blue-light); color: var(--blue-main); font-size: 10px; padding: 4px 10px; border-radius: 99px; font-weight: 700; }
+    .portfolio-icon { font-size: 40px; margin-bottom: 20px; display: block; }
+    .portfolio-title { font-size: 20px; font-weight: 700; color: var(--blue-dark); margin-bottom: 10px; }
+    .portfolio-desc { font-size: 14px; color: var(--gray); line-height: 1.7; margin-bottom: 16px; }
+    .portfolio-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+    .portfolio-tag { font-size: 11px; background: var(--blue-light); color: var(--blue-main); padding: 4px 10px; border-radius: 99px; font-weight: 600; }
+    .btn-demo { display: inline-block; background: var(--blue-main); color: #fff; padding: 10px 22px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 600; transition: background 0.2s, transform 0.2s; }
+    .btn-demo:hover { background: #1a6dbf; transform: translateY(-2px); }
+    .sp-card { grid-column: 1 / -1; }
+    .info-box { background: var(--blue-light); border-radius: 12px; padding: 24px 32px; margin-bottom: 48px; display: flex; align-items: center; gap: 16px; }
+    .info-box-icon { font-size: 24px; flex-shrink: 0; }
+    .info-box-text { font-size: 14px; color: var(--anthrazit); line-height: 1.6; }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="mailto:helpdesk@i-link.ch" class="nav-helpdesk">🎧 Helpdesk</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="leistungen.html">Leistungen</a></li>
+    <li><a href="ueber-mich.html">Über mich</a></li>
+    <li><a href="portfolio.html" class="active">Portfolio</a></li>
+    <li><a href="kontakt.html" class="nav-cta">Kontakt</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span id="h1"></span><span id="h2"></span><span id="h3"></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="toggleMenu()">Home</a>
+  <a href="leistungen.html" onclick="toggleMenu()">Leistungen</a>
+  <a href="ueber-mich.html" onclick="toggleMenu()">Über mich</a>
+  <a href="portfolio.html" onclick="toggleMenu()">Portfolio</a>
+  <a href="kontakt.html" onclick="toggleMenu()" class="nav-cta">Kontakt</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-tag">Portfolio</div>
+  <h1>Website-Beispiele</h1>
+  <p>Entdecken Sie was mit i-link möglich ist – klicken Sie auf ein Beispiel und erleben Sie es live.</p>
+</div>
+
+<section class="section section-light">
+  <div class="info-box reveal">
+    <div class="info-box-icon">💡</div>
+    <div class="info-box-text">Diese Beispiele sind <strong>Vorlagen und Musterwebsites</strong> – sie wurden noch nicht für echte Kunden umgesetzt. Sie dienen als Inspiration und zeigen, was für Ihr Unternehmen möglich ist. Jede Website wird individuell auf Ihren Betrieb zugeschnitten.</div>
+  </div>
+
+  <div class="portfolio-grid">
+    <div class="portfolio-card reveal reveal-delay-1">
+      <div class="portfolio-badge">BEISPIEL</div>
+      <span class="portfolio-icon">🍽</span>
+      <div class="portfolio-title">Restaurant Seiler</div>
+      <p class="portfolio-desc">Elegante Website für ein Schweizer Restaurant – mit Speisekarte, Reservierung und Öffnungszeiten.</p>
+      <div class="portfolio-tags">
+        <span class="portfolio-tag">Restaurant</span>
+        <span class="portfolio-tag">Premium-Design</span>
+        <span class="portfolio-tag">Reservierung</span>
+      </div>
+      <a href="demo_restaurant.html" target="_blank" class="btn-demo">Beispiel ansehen →</a>
+    </div>
+
+    <div class="portfolio-card reveal reveal-delay-2">
+      <div class="portfolio-badge">BEISPIEL</div>
+      <span class="portfolio-icon">📊</span>
+      <div class="portfolio-title">Treuhand Müller</div>
+      <p class="portfolio-desc">Professioneller Webauftritt für ein Treuhandbüro – seriös, vertrauenswürdig und überzeugend.</p>
+      <div class="portfolio-tags">
+        <span class="portfolio-tag">Treuhand</span>
+        <span class="portfolio-tag">KMU</span>
+        <span class="portfolio-tag">Professionell</span>
+      </div>
+      <a href="demo_treuhand.html" target="_blank" class="btn-demo">Beispiel ansehen →</a>
+    </div>
+
+    <div class="portfolio-card reveal reveal-delay-3">
+      <div class="portfolio-badge">BEISPIEL</div>
+      <span class="portfolio-icon">✂️</span>
+      <div class="portfolio-title">Studio Belle</div>
+      <p class="portfolio-desc">Elegante Beauty-Website für einen Coiffeur-Salon – modern, warm und einladend.</p>
+      <div class="portfolio-tags">
+        <span class="portfolio-tag">Beauty</span>
+        <span class="portfolio-tag">Online-Buchung</span>
+        <span class="portfolio-tag">Elegant</span>
+      </div>
+      <a href="demo_coiffeur.html" target="_blank" class="btn-demo">Beispiel ansehen →</a>
+    </div>
+
+    <div class="portfolio-card sp-card reveal">
+      <div class="portfolio-badge" style="background:#EFF6FC;color:#0078D4;">SHAREPOINT DEMO</div>
+      <span class="portfolio-icon">🔗</span>
+      <div class="portfolio-title">Muster AG – SharePoint Intranet</div>
+      <p class="portfolio-desc">Vollständiges KMU-Intranet mit News, Aufgaben, Kalender, Dokumenten und Mitarbeiterverzeichnis – täuschend echt nachgebaut. Kein Login nötig.</p>
+      <div class="portfolio-tags">
+        <span class="portfolio-tag" style="background:#EFF6FC;color:#0078D4;">SharePoint</span>
+        <span class="portfolio-tag" style="background:#EFF6FC;color:#0078D4;">Intranet</span>
+        <span class="portfolio-tag" style="background:#EFF6FC;color:#0078D4;">Microsoft 365</span>
+        <span class="portfolio-tag" style="background:#EFF6FC;color:#0078D4;">KMU</span>
+      </div>
+      <a href="demo_sharepoint.html" target="_blank" class="btn-demo" style="background:#0078D4;">SharePoint Demo ansehen →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section section-gray">
+  <div style="text-align:center;" class="reveal">
+    <div class="section-tag">Ihr Projekt</div>
+    <h2 class="section-title">So könnte Ihre Website aussehen</h2>
+    <p style="font-size:17px;color:var(--gray);line-height:1.7;max-width:500px;margin:0 auto 40px;">Ich erstelle Ihre individuelle Website – persönlich, professionell und zu fairen Preisen. Kontaktieren Sie mich für ein unverbindliches Gespräch.</p>
+    <a href="kontakt.html" class="btn-primary">Jetzt anfragen →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">i<span>-</span>link</div>
+  <div class="footer-copy">© 2026 Marc Gabriel – i-link · 6312 Steinhausen / ZG</div>
+  <div class="footer-links">
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

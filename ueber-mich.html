@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Über mich – i-link</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .about-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 60px; align-items: start; }
+    .about-photo { border-radius: 20px; overflow: hidden; position: sticky; top: 90px; }
+    .about-photo img { width: 100%; height: auto; display: block; }
+    .tag-group { margin-bottom: 28px; }
+    .tag-group-title { font-size: 12px; font-weight: 700; letter-spacing: 0.15em; color: var(--blue-main); text-transform: uppercase; margin-bottom: 12px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { background: var(--blue-light); color: var(--blue-dark); padding: 5px 12px; border-radius: 99px; font-size: 12px; font-weight: 600; }
+    .tag-dark { background: #EFF6FC; color: #0C2340; }
+    .comp-list { display: flex; flex-direction: column; gap: 8px; }
+    .comp-item { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--anthrazit); padding: 8px 12px; border-radius: 8px; transition: background 0.2s; }
+    .comp-item:hover { background: var(--blue-light); }
+    .comp-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue-main); flex-shrink: 0; }
+    .cert-card { background: var(--blue-light); border-left: 3px solid var(--blue-main); border-radius: 0 10px 10px 0; padding: 16px 20px; margin-bottom: 12px; display: flex; align-items: center; gap: 16px; }
+    .cert-year { font-size: 12px; font-weight: 700; color: var(--blue-main); min-width: 48px; }
+    .cert-title { font-size: 14px; font-weight: 700; color: var(--blue-dark); margin-bottom: 2px; }
+    .cert-sub { font-size: 12px; color: var(--blue-main); margin-bottom: 2px; }
+    .cert-school { font-size: 11px; color: var(--gray); }
+    .cert-badge { margin-left: auto; background: var(--blue-main); color: white; font-size: 10px; padding: 3px 10px; border-radius: 99px; font-weight: 700; white-space: nowrap; }
+    @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } .about-photo { position: static; } }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="mailto:helpdesk@i-link.ch" class="nav-helpdesk">🎧 Helpdesk</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="leistungen.html">Leistungen</a></li>
+    <li><a href="ueber-mich.html" class="active">Über mich</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="kontakt.html" class="nav-cta">Kontakt</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span id="h1"></span><span id="h2"></span><span id="h3"></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="toggleMenu()">Home</a>
+  <a href="leistungen.html" onclick="toggleMenu()">Leistungen</a>
+  <a href="ueber-mich.html" onclick="toggleMenu()">Über mich</a>
+  <a href="portfolio.html" onclick="toggleMenu()">Portfolio</a>
+  <a href="kontakt.html" onclick="toggleMenu()" class="nav-cta">Kontakt</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-tag">Über mich</div>
+  <h1>Marc Gabriel</h1>
+  <p>IT-Spezialist mit Leidenschaft für digitale Lösungen – persönlich, zuverlässig und immer für Sie da.</p>
+</div>
+
+<section class="section section-light">
+  <div class="about-grid">
+    <div class="about-photo reveal">
+      <img src="Profilbild_Marc.jpg" alt="Marc Gabriel – i-link">
+    </div>
+    <div class="reveal reveal-delay-2">
+      <div class="section-tag">Wer bin ich</div>
+      <h2 class="section-title">Ihr persönlicher IT-Partner</h2>
+      <p style="color:var(--gray);font-size:15px;line-height:1.8;margin-bottom:16px;">Als Einzelunternehmer biete ich Ihnen etwas das grosse IT-Firmen oft nicht können: persönliche, direkte Betreuung. Sie sprechen immer mit mir – ohne Call-Center, ohne lange Wartezeiten.</p>
+      <p style="color:var(--gray);font-size:15px;line-height:1.8;margin-bottom:32px;">Mit Sitz in Steinhausen ZG bin ich schnell vor Ort – für IT-Support, Website-Projekte und SharePoint-Lösungen.</p>
+
+      <div class="tag-group">
+        <div class="tag-group-title">Software Kenntnisse</div>
+        <div class="tags">
+          <span class="tag">Microsoft 365</span>
+          <span class="tag">M365 Admin Center</span>
+          <span class="tag">Microsoft Azure</span>
+          <span class="tag">Windows Server</span>
+          <span class="tag">SharePoint</span>
+          <span class="tag">WordPress</span>
+          <span class="tag">Deutsch C2</span>
+        </div>
+      </div>
+
+      <div class="tag-group">
+        <div class="tag-group-title">Technische Kompetenzen</div>
+        <div class="tags">
+          <span class="tag tag-dark">Client-Systeme & Hardware</span>
+          <span class="tag tag-dark">Benutzerverwaltung</span>
+          <span class="tag tag-dark">Server Administration</span>
+          <span class="tag tag-dark">Fernwartung & VPN</span>
+          <span class="tag tag-dark">IT-Sicherheit & Firewall</span>
+          <span class="tag tag-dark">Datensicherheit & Backup</span>
+        </div>
+      </div>
+
+      <div class="tag-group">
+        <div class="tag-group-title">Persönliche Kompetenzen</div>
+        <div class="comp-list">
+          <div class="comp-item"><div class="comp-dot"></div>Strukturierte und effiziente Arbeitsweise</div>
+          <div class="comp-item"><div class="comp-dot"></div>Selbstständige Organisation von Aufgaben</div>
+          <div class="comp-item"><div class="comp-dot"></div>Vorausschauende Planung von Projekten</div>
+          <div class="comp-item"><div class="comp-dot"></div>Teamfähigkeit und kooperative Zusammenarbeit</div>
+          <div class="comp-item"><div class="comp-dot"></div>Kommunikationsstärke und Networking</div>
+        </div>
+      </div>
+
+      <div class="tag-group" style="margin-top:32px;">
+        <div class="tag-group-title">Aus- & Weiterbildung</div>
+        <div class="cert-card">
+          <div class="cert-year">2025<br>2026</div>
+          <div>
+            <div class="cert-title">ICT Professional SIZ®</div>
+            <div class="cert-sub">Systems & Network</div>
+            <div class="cert-school">SWS-Schulen, Winterthur</div>
+          </div>
+          <span class="cert-badge">SIZ</span>
+        </div>
+        <div class="cert-card">
+          <div class="cert-year">2025</div>
+          <div>
+            <div class="cert-title">ICT Power-User SIZ</div>
+            <div class="cert-sub">ICT Anwender Zertifikat</div>
+            <div class="cert-school">SWS-Schulen, Winterthur</div>
+          </div>
+          <span class="cert-badge">SIZ</span>
+        </div>
+      </div>
+
+      <a href="kontakt.html" class="btn-primary" style="margin-top:16px;">Kontakt aufnehmen →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">i<span>-</span>link</div>
+  <div class="footer-copy">© 2026 Marc Gabriel – i-link · 6312 Steinhausen / ZG</div>
+  <div class="footer-links">
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

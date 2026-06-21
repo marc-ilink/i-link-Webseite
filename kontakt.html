@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakt – i-link</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .kontakt-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: start; }
+    .kontakt-info { background: var(--blue-dark); border-radius: 20px; padding: 48px 40px; position: relative; overflow: hidden; }
+    .kontakt-info::before { content: ''; position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; border: 40px solid rgba(255,255,255,0.04); border-radius: 50%; }
+    .kontakt-info h2 { font-size: 28px; font-weight: 800; color: white; margin-bottom: 12px; }
+    .kontakt-info p { color: rgba(255,255,255,0.6); font-size: 14px; line-height: 1.7; margin-bottom: 36px; }
+    .info-rows { display: flex; flex-direction: column; gap: 20px; }
+    .info-row { display: flex; align-items: center; gap: 16px; padding: 14px; border-radius: 10px; transition: background 0.2s; }
+    .info-row:hover { background: rgba(255,255,255,0.05); }
+    .info-icon { width: 44px; height: 44px; background: rgba(133,183,235,0.12); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+    .info-label { font-size: 11px; color: rgba(255,255,255,0.35); margin-bottom: 3px; }
+    .info-val { font-size: 14px; color: white; font-weight: 500; }
+    .info-val a { color: var(--blue-mid); text-decoration: none; }
+    .response-badge { margin-top: 28px; background: rgba(133,183,235,0.12); border: 1px solid rgba(133,183,235,0.2); border-radius: 10px; padding: 14px 18px; display: flex; align-items: center; gap: 12px; }
+    .response-badge-icon { font-size: 22px; }
+    .response-badge-text { font-size: 13px; color: rgba(255,255,255,0.7); }
+    .response-badge-text strong { color: var(--blue-mid); }
+    .form-card { background: white; border-radius: 20px; padding: 48px 40px; border: 1px solid #E8E6E0; box-shadow: 0 8px 32px rgba(12,35,64,0.06); }
+    .form-card h2 { font-size: 24px; font-weight: 800; color: var(--blue-dark); margin-bottom: 8px; }
+    .form-card p { font-size: 14px; color: var(--gray); margin-bottom: 32px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .form-label { font-size: 12px; color: var(--gray); font-weight: 600; }
+    .form-input { background: var(--gray-light); border: 1px solid #E8E6E0; border-radius: 8px; padding: 12px 16px; color: var(--anthrazit); font-size: 14px; font-family: inherit; outline: none; transition: border-color 0.2s, background 0.2s; }
+    .form-input:focus { border-color: var(--blue-main); background: white; }
+    .form-input::placeholder { color: #B4B2A9; }
+    textarea.form-input { resize: vertical; min-height: 140px; }
+    .form-submit { background: var(--blue-main); color: white; border: none; padding: 14px 32px; border-radius: 8px; font-size: 15px; font-weight: 600; font-family: inherit; cursor: pointer; width: 100%; transition: background 0.2s, transform 0.2s; box-shadow: 0 4px 16px rgba(24,95,165,0.3); }
+    .form-submit:hover { background: #1a6dbf; transform: translateY(-2px); }
+    @media (max-width: 768px) { .kontakt-grid { grid-template-columns: 1fr; } .form-row { grid-template-columns: 1fr; } .form-card { padding: 32px 24px; } .kontakt-info { padding: 32px 24px; } }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="mailto:helpdesk@i-link.ch" class="nav-helpdesk">🎧 Helpdesk</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="leistungen.html">Leistungen</a></li>
+    <li><a href="ueber-mich.html">Über mich</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="kontakt.html" class="nav-cta active">Kontakt</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span id="h1"></span><span id="h2"></span><span id="h3"></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="toggleMenu()">Home</a>
+  <a href="leistungen.html" onclick="toggleMenu()">Leistungen</a>
+  <a href="ueber-mich.html" onclick="toggleMenu()">Über mich</a>
+  <a href="portfolio.html" onclick="toggleMenu()">Portfolio</a>
+  <a href="kontakt.html" onclick="toggleMenu()" class="nav-cta">Kontakt</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-tag">Kontakt</div>
+  <h1>Lassen Sie uns sprechen</h1>
+  <p>Haben Sie eine Frage oder möchten Sie ein Projekt besprechen? Ich freue mich auf Ihre Nachricht.</p>
+</div>
+
+<section class="section section-light">
+  <div class="kontakt-grid">
+    <div class="kontakt-info reveal">
+      <h2>So erreichen Sie mich</h2>
+      <p>Ich bin persönlich für Sie da – ohne Call-Center und ohne lange Wartezeiten.</p>
+      <div class="info-rows">
+        <div class="info-row">
+          <div class="info-icon">✉</div>
+          <div>
+            <div class="info-label">E-Mail</div>
+            <div class="info-val"><a href="mailto:kontakt@i-link.ch">kontakt@i-link.ch</a></div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">🎧</div>
+          <div>
+            <div class="info-label">Helpdesk</div>
+            <div class="info-val"><a href="mailto:helpdesk@i-link.ch">helpdesk@i-link.ch</a></div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">📍</div>
+          <div>
+            <div class="info-label">Standort</div>
+            <div class="info-val">6312 Steinhausen / ZG</div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">🌐</div>
+          <div>
+            <div class="info-label">Website</div>
+            <div class="info-val"><a href="https://www.i-link.ch">www.i-link.ch</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="response-badge">
+        <div class="response-badge-icon">⚡</div>
+        <div class="response-badge-text">Antwort <strong>innert 24 Stunden</strong> · Kostenlose Erstberatung</div>
+      </div>
+    </div>
+
+    <div class="form-card reveal reveal-delay-2">
+      <h2>Nachricht senden</h2>
+      <p>Füllen Sie das Formular aus – ich melde mich so schnell wie möglich.</p>
+      <form action="https://formspree.io/f/XXXXXXXX" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Vorname *</label>
+            <input type="text" name="vorname" class="form-input" placeholder="Max" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Nachname *</label>
+            <input type="text" name="nachname" class="form-input" placeholder="Mustermann" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">E-Mail *</label>
+          <input type="email" name="email" class="form-input" placeholder="max@firma.ch" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Firma</label>
+          <input type="text" name="firma" class="form-input" placeholder="Muster GmbH">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Betreff *</label>
+          <select name="betreff" class="form-input" required>
+            <option value="">Bitte wählen...</option>
+            <option>IT-Support</option>
+            <option>Website</option>
+            <option>SharePoint</option>
+            <option>Anderes</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Ihre Nachricht *</label>
+          <textarea name="nachricht" class="form-input" placeholder="Beschreiben Sie Ihr Anliegen..." required></textarea>
+        </div>
+        <button type="submit" class="form-submit">Nachricht senden →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">i<span>-</span>link</div>
+  <div class="footer-copy">© 2026 Marc Gabriel – i-link · 6312 Steinhausen / ZG</div>
+  <div class="footer-links">
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

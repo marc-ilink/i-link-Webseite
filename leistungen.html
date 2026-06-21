@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leistungen – i-link</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .leistung-detail { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 80px; }
+    .leistung-detail:nth-child(even) { direction: rtl; }
+    .leistung-detail:nth-child(even) > * { direction: ltr; }
+    .leistung-visual { background: linear-gradient(135deg, var(--blue-dark), var(--blue-main)); border-radius: 20px; padding: 60px; display: flex; align-items: center; justify-content: center; font-size: 80px; }
+    .leistung-list { list-style: none; margin: 20px 0; }
+    .leistung-list li { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid #E8E6E0; font-size: 14px; color: var(--gray); }
+    .leistung-list li::before { content: '✓'; color: var(--blue-main); font-weight: 700; flex-shrink: 0; }
+    @media (max-width: 768px) { .leistung-detail { grid-template-columns: 1fr; } .leistung-detail:nth-child(even) { direction: ltr; } }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="mailto:helpdesk@i-link.ch" class="nav-helpdesk">🎧 Helpdesk</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="leistungen.html" class="active">Leistungen</a></li>
+    <li><a href="ueber-mich.html">Über mich</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="kontakt.html" class="nav-cta">Kontakt</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span id="h1"></span><span id="h2"></span><span id="h3"></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="toggleMenu()">Home</a>
+  <a href="leistungen.html" onclick="toggleMenu()">Leistungen</a>
+  <a href="ueber-mich.html" onclick="toggleMenu()">Über mich</a>
+  <a href="portfolio.html" onclick="toggleMenu()">Portfolio</a>
+  <a href="kontakt.html" onclick="toggleMenu()" class="nav-cta">Kontakt</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-tag">Leistungen</div>
+  <h1>Was ich für Sie tun kann</h1>
+  <p>Von IT-Support über Websites bis zu SharePoint-Lösungen – ich begleite Sie auf Ihrem digitalen Weg. Persönlich, zuverlässig und aus einer Hand.</p>
+</div>
+
+<section class="section section-light">
+  <div class="leistung-detail reveal">
+    <div class="leistung-visual">💻</div>
+    <div>
+      <div class="section-tag">Leistung 1</div>
+      <h2 class="section-title">IT-Support</h2>
+      <p style="color:var(--gray);font-size:15px;line-height:1.8;margin-bottom:20px;">Schnelle, zuverlässige Hilfe bei technischen Problemen – vor Ort in der Schweiz oder per Fernwartung. Sie erreichen mich direkt, ohne Umwege.</p>
+      <ul class="leistung-list">
+        <li>Helpdesk & Fernwartung</li>
+        <li>Hardware-Einrichtung & Störungsbehebung</li>
+        <li>Software-Installation & Updates</li>
+        <li>Microsoft 365 Einrichtung & Support</li>
+        <li>Benutzerverwaltung & Berechtigungen</li>
+        <li>Server Administration & Wartung</li>
+        <li>Datensicherheit & Backup-Lösungen</li>
+      </ul>
+      <a href="kontakt.html" class="btn-primary" style="margin-top:24px;">IT-Support anfragen</a>
+    </div>
+  </div>
+
+  <div class="leistung-detail reveal">
+    <div class="leistung-visual">🌐</div>
+    <div>
+      <div class="section-tag">Leistung 2</div>
+      <h2 class="section-title">Moderne Websites</h2>
+      <p style="color:var(--gray);font-size:15px;line-height:1.8;margin-bottom:20px;">Professionelle Websites die Ihre Kunden überzeugen – individuell gestaltet, mobiloptimiert und auf Ihr Unternehmen zugeschnitten.</p>
+      <ul class="leistung-list">
+        <li>Individuell & massgeschneidert</li>
+        <li>Responsives Design für alle Geräte</li>
+        <li>WordPress & mehr</li>
+        <li>Wartung & regelmässige Updates</li>
+        <li>Kontaktformulare & Funktionen</li>
+        <li>Schnelle Ladezeiten & Sicherheit</li>
+      </ul>
+      <a href="kontakt.html" class="btn-primary" style="margin-top:24px;">Website anfragen</a>
+    </div>
+  </div>
+
+  <div class="leistung-detail reveal">
+    <div class="leistung-visual">🔗</div>
+    <div>
+      <div class="section-tag">Leistung 3</div>
+      <h2 class="section-title">SharePoint</h2>
+      <p style="color:var(--gray);font-size:15px;line-height:1.8;margin-bottom:20px;">Modernes Intranet und digitale Zusammenarbeit für Ihr Team – strukturiert, übersichtlich und perfekt in Microsoft 365 integriert.</p>
+      <ul class="leistung-list">
+        <li>Intranet-Aufbau & Gestaltung</li>
+        <li>Dokumentenverwaltung & Archive</li>
+        <li>Workflows & Prozessautomatisierung</li>
+        <li>Microsoft Teams Integration</li>
+        <li>Berechtigungsmanagement</li>
+        <li>Schulung & Support für Ihr Team</li>
+      </ul>
+      <a href="kontakt.html" class="btn-primary" style="margin-top:24px;">SharePoint anfragen</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section section-gray">
+  <div class="contact-wrapper reveal">
+    <div>
+      <div class="section-tag" style="color:var(--blue-mid)">Unverbindlich anfragen</div>
+      <h2 class="section-title" style="color:white;">Interesse geweckt?</h2>
+      <p style="color:rgba(255,255,255,0.6);font-size:16px;line-height:1.7;">Ich berate Sie gerne – kostenlos und unverbindlich. Schildern Sie mir Ihr Anliegen und ich melde mich innert 24 Stunden.</p>
+    </div>
+    <div style="text-align:center;">
+      <a href="kontakt.html" class="btn-primary" style="display:inline-block;margin-bottom:16px;">Jetzt Kontakt aufnehmen →</a>
+      <p style="color:rgba(255,255,255,0.4);font-size:12px;">Antwort innert 24 Stunden · Kostenlose Erstberatung</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">i<span>-</span>link</div>
+  <div class="footer-copy">© 2026 Marc Gabriel – i-link · 6312 Steinhausen / ZG</div>
+  <div class="footer-links">
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

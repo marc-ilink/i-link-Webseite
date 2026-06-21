@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Seiler – Authentische Schweizer Küche</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #C9A84C;
+      --dark: #1A1108;
+      --brown: #3D2B1F;
+      --cream: #F9F4EC;
+      --gray: #6B6560;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Lato', sans-serif; background: var(--cream); color: var(--dark); }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(26,17,8,0.95);
+      padding: 0 5%; height: 70px;
+      display: flex; align-items: center; justify-content: space-between;
+      backdrop-filter: blur(10px);
+    }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--gold); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-reserve { background: var(--gold); color: var(--dark) !important; padding: 8px 20px; border-radius: 4px; font-weight: 700 !important; }
+
+    .hero {
+      height: 100vh;
+      background: linear-gradient(160deg, #1A1108 0%, #3D2B1F 100%);
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '🍽';
+      position: absolute; font-size: 400px; opacity: 0.04;
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
+    }
+    .hero-badge {
+      display: inline-block;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 6px 20px; border-radius: 99px;
+      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(42px, 7vw, 80px); color: #fff; line-height: 1.1; margin-bottom: 20px; }
+    .hero h1 em { color: var(--gold); font-style: italic; }
+    .hero-sub { font-size: 17px; color: rgba(255,255,255,0.6); margin-bottom: 40px; line-height: 1.7; }
+    .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-gold { background: var(--gold); color: var(--dark); padding: 14px 32px; border-radius: 4px; text-decoration: none; font-weight: 700; font-size: 14px; letter-spacing: 0.05em; transition: opacity 0.2s; }
+    .btn-gold:hover { opacity: 0.85; }
+    .btn-outline { border: 1px solid rgba(255,255,255,0.3); color: #fff; padding: 14px 32px; border-radius: 4px; text-decoration: none; font-size: 14px; letter-spacing: 0.05em; transition: border-color 0.2s; }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    .section { padding: 100px 5%; }
+    .section-tag { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 48px); color: var(--brown); line-height: 1.2; margin-bottom: 20px; }
+    .section-sub { font-size: 16px; color: var(--gray); line-height: 1.8; max-width: 560px; }
+
+    .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; margin-top: 56px; }
+    .menu-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.2s; }
+    .menu-card:hover { transform: translateY(-6px); }
+    .menu-img { height: 200px; display: flex; align-items: center; justify-content: center; font-size: 80px; }
+    .menu-img.r { background: linear-gradient(135deg, #2D1B00, #5C3A1E); }
+    .menu-img.f { background: linear-gradient(135deg, #003322, #1A6644); }
+    .menu-img.d { background: linear-gradient(135deg, #1A0033, #4A1A6E); }
+    .menu-body { padding: 24px; }
+    .menu-title { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--brown); margin-bottom: 8px; }
+    .menu-desc { font-size: 13px; color: var(--gray); line-height: 1.6; margin-bottom: 16px; }
+    .menu-price { font-size: 18px; font-weight: 700; color: var(--gold); }
+
+    .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; margin-top: 56px; background: var(--brown); border-radius: 16px; padding: 48px; }
+    .info-item { text-align: center; }
+    .info-icon { font-size: 32px; margin-bottom: 12px; }
+    .info-title { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--gold); margin-bottom: 8px; }
+    .info-text { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+
+    footer { background: var(--dark); padding: 40px 5%; text-align: center; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--gold); margin-bottom: 12px; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
+    .ilink-badge { position: fixed; bottom: 20px; right: 20px; background: #185FA5; color: #fff; padding: 8px 16px; border-radius: 99px; font-size: 11px; text-decoration: none; font-family: sans-serif; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Restaurant Seiler</div>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Speisekarte</a></li>
+    <li><a href="#">Über uns</a></li>
+    <li><a href="#" class="nav-reserve">Reservieren</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div>
+    <div class="hero-badge">✦ Seit 1987 in Zug ✦</div>
+    <h1>Authentische<br><em>Schweizer Küche</em></h1>
+    <p class="hero-sub">Traditionelle Rezepte, frische regionale Zutaten<br>und herzliche Gastfreundschaft im Herzen von Zug.</p>
+    <div class="hero-btns">
+      <a href="#" class="btn-gold">Tisch reservieren</a>
+      <a href="#" class="btn-outline">Speisekarte ansehen</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:#fff;">
+  <div class="section-tag">Unsere Küche</div>
+  <h2 class="section-title">Saisonale Highlights</h2>
+  <p class="section-sub">Frisch, regional und mit Liebe zubereitet – jeden Tag neu für Sie.</p>
+  <div class="menu-grid">
+    <div class="menu-card">
+      <div class="menu-img r">🥩</div>
+      <div class="menu-body">
+        <div class="menu-title">Zürcher Geschnetzeltes</div>
+        <p class="menu-desc">Zartes Kalbfleisch in cremiger Pilrahmsauce, serviert mit Rösti und Gemüse der Saison.</p>
+        <div class="menu-price">CHF 38.–</div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-img f">🐟</div>
+      <div class="menu-body">
+        <div class="menu-title">Zuger Felchen</div>
+        <p class="menu-desc">Frischer Felchen aus dem Zugersee, gebraten mit Kräuterbutter und saisonalem Gemüse.</p>
+        <div class="menu-price">CHF 42.–</div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-img d">🍮</div>
+      <div class="menu-body">
+        <div class="menu-title">Kirsch-Mousse</div>
+        <p class="menu-desc">Hausgemachte Mousse mit Zuger Kirschwasser, serviert mit frischen Beeren.</p>
+        <div class="menu-price">CHF 14.–</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--cream);">
+  <div class="section-tag">Praktisches</div>
+  <h2 class="section-title">Gut zu wissen</h2>
+  <div class="info-grid">
+    <div class="info-item">
+      <div class="info-icon">🕐</div>
+      <div class="info-title">Öffnungszeiten</div>
+      <div class="info-text">Di–Sa 11:30–14:00<br>Di–Sa 18:00–22:00<br>So & Mo geschlossen</div>
+    </div>
+    <div class="info-item">
+      <div class="info-icon">📍</div>
+      <div class="info-title">Adresse</div>
+      <div class="info-text">Bahnhofstrasse 12<br>6300 Zug<br>Schweiz</div>
+    </div>
+    <div class="info-item">
+      <div class="info-icon">📱</div>
+      <div class="info-title">Reservierung</div>
+      <div class="info-text">+41 41 123 45 67<br>info@restaurant-seiler.ch<br>Online reservieren</div>
+    </div>
+    <div class="info-item">
+      <div class="info-icon">🅿</div>
+      <div class="info-title">Parkplatz</div>
+      <div class="info-text">Kostenlose Parkplätze<br>direkt beim Restaurant<br>verfügbar</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Restaurant Seiler</div>
+  <p class="footer-copy">© 2026 Restaurant Seiler · Bahnhofstrasse 12 · 6300 Zug</p>
+</footer>
+
+<a href="https://www.i-link.ch" class="ilink-badge">🔗 Website by i-link</a>
+
+</body>
+</html>
