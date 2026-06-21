@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>i-link – Ihre Verbindung zur digitalen Welt</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .hero { background: linear-gradient(160deg, var(--blue-dark) 0%, #0f3460 60%, #185FA5 100%); min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 60px; padding: 120px 5% 80px; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(133,183,235,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(133,183,235,0.04) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
+    .orb { position: absolute; border-radius: 50%; filter: blur(60px); animation: float 8s ease-in-out infinite; pointer-events: none; }
+    .orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(133,183,235,0.18) 0%, transparent 70%); top: -100px; right: -100px; }
+    .orb-2 { width: 350px; height: 350px; background: radial-gradient(circle, rgba(24,95,165,0.25) 0%, transparent 70%); bottom: -80px; left: -80px; animation-delay: -3s; }
+    @keyframes float { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-30px) scale(1.05); } }
+    .hero-content { max-width: 680px; position: relative; z-index: 1; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(133,183,235,0.12); border: 1px solid rgba(133,183,235,0.25); color: var(--blue-mid); padding: 6px 16px; border-radius: 99px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; margin-bottom: 28px; animation: fadeSlideDown 0.8s ease 0.2s both; }
+    @keyframes fadeSlideDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+    .hero h1 { font-size: clamp(36px, 5vw, 60px); font-weight: 800; color: var(--white); line-height: 1.1; margin-bottom: 24px; animation: fadeSlideUp 0.9s ease 0.4s both; }
+    .hero h1 span { color: var(--blue-mid); }
+    @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-sub { font-size: 18px; color: rgba(255,255,255,0.68); line-height: 1.7; margin-bottom: 40px; max-width: 520px; animation: fadeSlideUp 0.9s ease 0.6s both; }
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; animation: fadeSlideUp 0.9s ease 0.8s both; }
+    .hero-stats { display: flex; gap: 48px; margin-top: 60px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.08); animation: fadeSlideUp 0.9s ease 1s both; }
+    .stat-num { font-size: 32px; font-weight: 800; color: var(--white); }
+    .stat-label { font-size: 13px; color: rgba(255,255,255,0.45); margin-top: 4px; }
+    .hero-visual { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; }
+    .why-item { text-align: center; padding: 32px 20px; border-radius: 16px; transition: background 0.3s, transform 0.3s; }
+    .why-item:hover { background: var(--blue-light); transform: translateY(-4px); }
+    .why-num { font-size: 52px; font-weight: 800; color: var(--blue-main); line-height: 1; margin-bottom: 8px; display: block; }
+    .why-title { font-size: 16px; font-weight: 700; color: var(--blue-dark); margin-bottom: 8px; }
+    .why-desc { font-size: 14px; color: var(--gray); line-height: 1.6; }
+    @media (max-width: 900px) { .hero { grid-template-columns: 1fr; } .hero-visual { display: none; } }
+    @media (max-width: 768px) { .hero { padding: 100px 5% 60px; } .hero-stats { gap: 20px; flex-wrap: wrap; } }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="mailto:helpdesk@i-link.ch" class="nav-helpdesk">🎧 Helpdesk</a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="leistungen.html">Leistungen</a></li>
+    <li><a href="ueber-mich.html">Über mich</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="kontakt.html" class="nav-cta">Kontakt</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span id="h1"></span><span id="h2"></span><span id="h3"></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="toggleMenu()">Home</a>
+  <a href="leistungen.html" onclick="toggleMenu()">Leistungen</a>
+  <a href="ueber-mich.html" onclick="toggleMenu()">Über mich</a>
+  <a href="portfolio.html" onclick="toggleMenu()">Portfolio</a>
+  <a href="kontakt.html" onclick="toggleMenu()" class="nav-cta">Kontakt</a>
+  <a href="mailto:helpdesk@i-link.ch" onclick="toggleMenu()">🎧 Helpdesk</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Ihr digitaler Partner für KMU und Kleinunternehmen</div>
+    <h1>Ihre Verbindung zur <span>digitalen Welt</span></h1>
+    <p class="hero-sub">IT-Support, professionelle Websites und SharePoint-Lösungen – alles aus einer Hand. Persönlich, zuverlässig und auf Ihre Bedürfnisse zugeschnitten.</p>
+    <div class="hero-btns">
+      <a href="kontakt.html" class="btn-primary">Jetzt anfragen</a>
+      <a href="leistungen.html" class="btn-secondary">Leistungen entdecken</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">3</div><div class="stat-label">Kernleistungen</div></div>
+      <div><div class="stat-num">100%</div><div class="stat-label">Persönliche Betreuung</div></div>
+      <div><div class="stat-num">24h</div><div class="stat-label">Reaktionszeit</div></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <svg viewBox="0 0 480 480" width="100%" style="max-width:480px;" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="240" cy="240" r="200" fill="none" stroke="rgba(133,183,235,0.12)" stroke-width="1"/>
+      <circle cx="240" cy="240" r="160" fill="none" stroke="rgba(133,183,235,0.08)" stroke-width="1"/>
+      <circle cx="240" cy="240" r="200" fill="none" stroke="rgba(133,183,235,0.25)" stroke-width="1.5" stroke-dasharray="8 12">
+        <animateTransform attributeName="transform" type="rotate" from="0 240 240" to="360 240 240" dur="30s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="240" cy="240" r="140" fill="none" stroke="rgba(24,95,165,0.3)" stroke-width="1" stroke-dasharray="4 8">
+        <animateTransform attributeName="transform" type="rotate" from="360 240 240" to="0 240 240" dur="20s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="240" cy="240" r="52" fill="rgba(24,95,165,0.3)" stroke="rgba(133,183,235,0.5)" stroke-width="1.5">
+        <animate attributeName="r" values="52;56;52" dur="3s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="240" cy="240" r="36" fill="rgba(24,95,165,0.6)" stroke="rgba(133,183,235,0.8)" stroke-width="1"/>
+      <text x="240" y="235" text-anchor="middle" fill="white" font-size="13" font-family="sans-serif" font-weight="600">i-link</text>
+      <text x="240" y="252" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9" font-family="sans-serif">IT PARTNER</text>
+      <line x1="240" y1="188" x2="240" y2="100" stroke="rgba(133,183,235,0.4)" stroke-width="1" stroke-dasharray="4 4"><animate attributeName="stroke-opacity" values="0.4;0.8;0.4" dur="2s" repeatCount="indefinite"/></line>
+      <circle cx="240" cy="82" r="30" fill="rgba(12,35,64,0.8)" stroke="rgba(133,183,235,0.6)" stroke-width="1.5"/>
+      <text x="240" y="78" text-anchor="middle" fill="white" font-size="18">💻</text>
+      <text x="240" y="96" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="8" font-family="sans-serif">IT-Support</text>
+      <line x1="292" y1="252" x2="370" y2="290" stroke="rgba(133,183,235,0.4)" stroke-width="1" stroke-dasharray="4 4"><animate attributeName="stroke-opacity" values="0.4;0.8;0.4" dur="2.5s" repeatCount="indefinite" begin="0.8s"/></line>
+      <circle cx="388" cy="300" r="30" fill="rgba(12,35,64,0.8)" stroke="rgba(133,183,235,0.6)" stroke-width="1.5"/>
+      <text x="388" y="296" text-anchor="middle" fill="white" font-size="18">🌐</text>
+      <text x="388" y="314" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="8" font-family="sans-serif">Websites</text>
+      <line x1="188" y1="252" x2="110" y2="290" stroke="rgba(133,183,235,0.4)" stroke-width="1" stroke-dasharray="4 4"><animate attributeName="stroke-opacity" values="0.4;0.8;0.4" dur="3s" repeatCount="indefinite" begin="1.5s"/></line>
+      <circle cx="92" cy="300" r="30" fill="rgba(12,35,64,0.8)" stroke="rgba(133,183,235,0.6)" stroke-width="1.5"/>
+      <text x="92" y="296" text-anchor="middle" fill="white" font-size="18">🔗</text>
+      <text x="92" y="314" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="8" font-family="sans-serif">SharePoint</text>
+    </svg>
+  </div>
+</section>
+
+<!-- WARUM i-link -->
+<section class="section section-light">
+  <div style="text-align:center;margin-bottom:56px;">
+    <div class="reveal"><div class="section-tag">Warum i-link</div></div>
+    <div class="reveal reveal-delay-1"><h2 class="section-title">Einfach. Persönlich. Zuverlässig.</h2></div>
+  </div>
+  <div class="why-grid">
+    <div class="why-item reveal reveal-delay-1"><span class="why-num">1</span><div class="why-title">Ansprechpartner</div><div class="why-desc">Sie sprechen immer direkt mit Marc Gabriel – kein Call-Center, keine Weiterleitung.</div></div>
+    <div class="why-item reveal reveal-delay-2"><span class="why-num">3</span><div class="why-title">Leistungen</div><div class="why-desc">IT-Support, Websites und SharePoint – alles aus einer Hand, perfekt aufeinander abgestimmt.</div></div>
+    <div class="why-item reveal reveal-delay-3"><span class="why-num">∞</span><div class="why-title">Verfügbarkeit</div><div class="why-desc">Schnelle Reaktionszeit und flexible Einsätze – auch ausserhalb der Bürozeiten.</div></div>
+    <div class="why-item reveal reveal-delay-4"><span class="why-num">🇨🇭</span><div class="why-title">Lokal & vertraut</div><div class="why-desc">Ihr IT-Partner in der Schweiz – nah, vertrauenswürdig und immer erreichbar.</div></div>
+    <div class="why-item reveal reveal-delay-1"><span class="why-num">24h</span><div class="why-title">Reaktionszeit</div><div class="why-desc">Ich antworte innert 24 Stunden – schnell, zuverlässig und ohne lange Wartezeiten.</div></div>
+    <div class="why-item reveal reveal-delay-2"><span class="why-num">DE</span><div class="why-title">Sprache</div><div class="why-desc">Beratung und Support auf Deutsch – klar, verständlich und ohne IT-Fachchinesisch.</div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section section-gray">
+  <div style="text-align:center;" class="reveal">
+    <div class="section-tag">Bereit loszulegen?</div>
+    <h2 class="section-title">Lassen Sie uns sprechen</h2>
+    <p style="font-size:17px;color:var(--gray);line-height:1.7;max-width:500px;margin:0 auto 40px;">Ich beantworte Ihre Fragen gerne – unverbindlich und persönlich.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="kontakt.html" class="btn-primary">Jetzt Kontakt aufnehmen</a>
+      <a href="leistungen.html" style="background:var(--blue-dark);color:var(--white);padding:14px 32px;border-radius:8px;font-size:15px;font-weight:600;text-decoration:none;transition:opacity 0.2s;">Leistungen ansehen</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">i<span>-</span>link</div>
+  <div class="footer-copy">© 2026 Marc Gabriel – i-link · 6312 Steinhausen / ZG</div>
+  <div class="footer-links">
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
