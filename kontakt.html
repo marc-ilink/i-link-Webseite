@@ -72,18 +72,12 @@
       <h2>So erreichen Sie mich</h2>
       <p>Ich bin persönlich für Sie da – ohne Call-Center und ohne lange Wartezeiten.</p>
       <div class="info-rows">
-        <div class="info-row">
-          <div class="info-icon">✉</div>
-          <div>
-            <div class="info-label">E-Mail</div>
-            <div class="info-val"><a href="mailto:kontakt@i-link.ch">kontakt@i-link.ch</a></div>
-          </div>
-        </div>
+
         <div class="info-row">
           <div class="info-icon">🎧</div>
           <div>
             <div class="info-label">Helpdesk</div>
-            <div class="info-val"><a href="mailto:helpdesk@i-link.ch">helpdesk@i-link.ch</a></div>
+            <div class="info-val"><a id="helpdesk-link" href="#" style="color:var(--blue-mid);">Klicken um zu kontaktieren</a></div>
           </div>
         </div>
         <div class="info-row">
@@ -165,6 +159,18 @@
 </footer>
 
 <script src="script.js"></script>
+<script>
+  // Spam-Schutz: E-Mail wird erst beim Klick sichtbar
+  const link = document.getElementById('helpdesk-link');
+  if (link) {
+    const u = 'helpdesk';
+    const d = 'i-link.ch';
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.location.href = 'mailto:' + u + '@' + d;
+    });
+  }
+</script>
 <script>
   const form = document.querySelector('form[action*="formspree"]');
   if (form) {
