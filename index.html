@@ -6,41 +6,130 @@
   <title>i-link – Ihre Verbindung zur digitalen Welt</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    .hero { background: linear-gradient(160deg, var(--blue-dark) 0%, #0f3460 60%, #185FA5 100%); min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 60px; padding: 120px 5% 80px; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(133,183,235,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(133,183,235,0.04) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
-    .orb { position: absolute; border-radius: 50%; filter: blur(60px); animation: float 8s ease-in-out infinite; pointer-events: none; }
-    .orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(133,183,235,0.18) 0%, transparent 70%); top: -100px; right: -100px; }
-    .orb-2 { width: 350px; height: 350px; background: radial-gradient(circle, rgba(24,95,165,0.25) 0%, transparent 70%); bottom: -80px; left: -80px; animation-delay: -3s; }
+    .hero {
+      background: linear-gradient(160deg, #060D1A 0%, #0C2340 50%, #0f3460 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 5% 80px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(133,183,235,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(133,183,235,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+    .orb { position: absolute; border-radius: 50%; filter: blur(80px); animation: float 8s ease-in-out infinite; pointer-events: none; }
+    .orb-1 { width: 600px; height: 600px; background: radial-gradient(circle, rgba(24,95,165,0.2) 0%, transparent 70%); top: -150px; right: -150px; }
+    .orb-2 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(133,183,235,0.15) 0%, transparent 70%); bottom: -100px; left: -100px; animation-delay: -3s; }
+    .orb-3 { width: 300px; height: 300px; background: radial-gradient(circle, rgba(24,95,165,0.1) 0%, transparent 70%); top: 50%; left: 50%; animation-delay: -5s; }
     @keyframes float { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-30px) scale(1.05); } }
-    .hero-content { max-width: 680px; position: relative; z-index: 1; }
-    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(133,183,235,0.12); border: 1px solid rgba(133,183,235,0.25); color: var(--blue-mid); padding: 6px 16px; border-radius: 99px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; margin-bottom: 28px; animation: fadeSlideDown 0.8s ease 0.2s both; }
+
+    .hero-logo {
+      margin-bottom: 40px;
+      animation: fadeSlideDown 0.9s ease 0.2s both;
+      position: relative; z-index: 1;
+    }
+    .hero-logo img {
+      height: 120px;
+      width: auto;
+      display: block;
+      margin: 0 auto;
+      filter: drop-shadow(0 0 30px rgba(133,183,235,0.4));
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(133,183,235,0.12);
+      border: 1px solid rgba(133,183,235,0.25);
+      color: var(--blue-mid);
+      padding: 6px 20px; border-radius: 99px;
+      font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+      margin-bottom: 28px;
+      animation: fadeSlideDown 0.8s ease 0.4s both;
+      position: relative; z-index: 1;
+    }
+
     @keyframes fadeSlideDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
-    .hero h1 { font-size: clamp(36px, 5vw, 60px); font-weight: 800; color: var(--white); line-height: 1.1; margin-bottom: 24px; animation: fadeSlideUp 0.9s ease 0.4s both; }
-    .hero h1 span { color: var(--blue-mid); }
     @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-    .hero-sub { font-size: 18px; color: rgba(255,255,255,0.68); line-height: 1.7; margin-bottom: 40px; max-width: 520px; animation: fadeSlideUp 0.9s ease 0.6s both; }
-    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; animation: fadeSlideUp 0.9s ease 0.8s both; }
-    .hero-stats { display: flex; gap: 48px; margin-top: 60px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.08); animation: fadeSlideUp 0.9s ease 1s both; }
-    .stat-num { font-size: 32px; font-weight: 800; color: var(--white); }
-    .stat-label { font-size: 13px; color: rgba(255,255,255,0.45); margin-top: 4px; }
-    .hero-visual { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; }
+
+    .hero h1 {
+      font-size: clamp(36px, 5vw, 68px);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 24px;
+      animation: fadeSlideUp 0.9s ease 0.6s both;
+      position: relative; z-index: 1;
+      max-width: 800px;
+    }
+    .hero h1 span { color: var(--blue-mid); }
+
+    .hero-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+      margin-bottom: 48px;
+      max-width: 580px;
+      animation: fadeSlideUp 0.9s ease 0.8s both;
+      position: relative; z-index: 1;
+    }
+
+    .hero-btns {
+      display: flex; gap: 16px; flex-wrap: wrap;
+      justify-content: center;
+      animation: fadeSlideUp 0.9s ease 1s both;
+      position: relative; z-index: 1;
+    }
+
+    .hero-services {
+      display: flex; gap: 20px; flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 64px;
+      padding-top: 48px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      animation: fadeSlideUp 0.9s ease 1.2s both;
+      position: relative; z-index: 1;
+    }
+
+    .hero-service {
+      display: flex; align-items: center; gap: 10px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(133,183,235,0.2);
+      border-radius: 12px;
+      padding: 14px 20px;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+    .hero-service:hover { background: rgba(255,255,255,0.1); border-color: rgba(133,183,235,0.5); transform: translateY(-3px); }
+    .hero-service-icon { font-size: 22px; }
+    .hero-service-text { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.85); }
+
+    /* WHY */
     .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; }
     .why-item { text-align: center; padding: 32px 20px; border-radius: 16px; transition: background 0.3s, transform 0.3s; }
     .why-item:hover { background: var(--blue-light); transform: translateY(-4px); }
     .why-num { font-size: 52px; font-weight: 800; color: var(--blue-main); line-height: 1; margin-bottom: 8px; display: block; }
     .why-title { font-size: 16px; font-weight: 700; color: var(--blue-dark); margin-bottom: 8px; }
     .why-desc { font-size: 14px; color: var(--gray); line-height: 1.6; }
-    @media (max-width: 900px) { .hero { grid-template-columns: 1fr; } .hero-visual { display: none; } }
-    @media (max-width: 768px) { .hero { padding: 100px 5% 60px; } .hero-stats { gap: 20px; flex-wrap: wrap; } }
+
+    @media (max-width: 768px) {
+      .hero { padding: 100px 5% 60px; }
+      .hero-logo img { height: 80px; }
+      .hero h1 { font-size: 32px; }
+      .hero-services { gap: 12px; }
+    }
   </style>
 </head>
 <body>
 
 <nav id="navbar">
-  <a href="#" class="nav-helpdesk" id="nav-helpdesk" onclick="(function(){window.location.href='mailto:'+ 'helpdesk'+ '@'+ 'i-link.ch';return false;})()">🎧 Helpdesk</a>
-  <a href="index.html" style="display:flex;align-items:center;">
-    <img src="Klassisch.png" alt="i-link" style="height:44px;width:auto;display:block;">
-  </a>
+  <a href="#" class="nav-helpdesk" id="nav-helpdesk" onclick="(function(){window.location.href='mailto:'+'helpdesk'+'@'+'i-link.ch';return false;})()">🎧 Helpdesk</a>
   <ul class="nav-links">
     <li><a href="index.html" class="active">Home</a></li>
     <li><a href="leistungen.html">Leistungen</a></li>
@@ -58,57 +147,37 @@
   <a href="ueber-mich.html" onclick="toggleMenu()">Über mich</a>
   <a href="portfolio.html" onclick="toggleMenu()">Portfolio</a>
   <a href="kontakt.html" onclick="toggleMenu()" class="nav-cta">Kontakt</a>
-  <a href="mailto:helpdesk@i-link.ch" onclick="toggleMenu()">🎧 Helpdesk</a>
+  <a href="#" onclick="(function(){window.location.href='mailto:'+'helpdesk'+'@'+'i-link.ch';})()">🎧 Helpdesk</a>
 </div>
 
 <!-- HERO -->
 <section class="hero">
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
-  <div class="hero-content">
-    <div class="hero-badge">Ihr digitaler Partner für KMU und Kleinunternehmen</div>
-    <h1>Ihre Verbindung zur <span>digitalen Welt</span></h1>
+  <div class="orb orb-3"></div>
 
-    <p class="hero-sub">IT-Support, professionelle Websites und SharePoint-Lösungen – alles aus einer Hand. Persönlich, zuverlässig und auf Ihre Bedürfnisse zugeschnitten.</p>
-    <div class="hero-btns">
-      <a href="kontakt.html" class="btn-primary">Jetzt anfragen</a>
-      <a href="leistungen.html" class="btn-secondary">Leistungen entdecken</a>
-    </div>
-    <div class="hero-stats">
-      <div><div class="stat-num">3</div><div class="stat-label">Kernleistungen</div></div>
-      <div><div class="stat-num">100%</div><div class="stat-label">Persönliche Betreuung</div></div>
-      <div><div class="stat-num">24h</div><div class="stat-label">Reaktionszeit</div></div>
-    </div>
+  <!-- LOGO PROMINENT -->
+  <div class="hero-logo">
+    <img src="Horizontal_Dark.jpg" alt="i-link" style="filter: drop-shadow(0 0 40px rgba(133,183,235,0.5));">
   </div>
-  <div class="hero-visual">
-    <svg viewBox="0 0 480 480" width="100%" style="max-width:480px;" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="240" cy="240" r="200" fill="none" stroke="rgba(133,183,235,0.12)" stroke-width="1"/>
-      <circle cx="240" cy="240" r="160" fill="none" stroke="rgba(133,183,235,0.08)" stroke-width="1"/>
-      <circle cx="240" cy="240" r="200" fill="none" stroke="rgba(133,183,235,0.25)" stroke-width="1.5" stroke-dasharray="8 12">
-        <animateTransform attributeName="transform" type="rotate" from="0 240 240" to="360 240 240" dur="30s" repeatCount="indefinite"/>
-      </circle>
-      <circle cx="240" cy="240" r="140" fill="none" stroke="rgba(24,95,165,0.3)" stroke-width="1" stroke-dasharray="4 8">
-        <animateTransform attributeName="transform" type="rotate" from="360 240 240" to="0 240 240" dur="20s" repeatCount="indefinite"/>
-      </circle>
-      <circle cx="240" cy="240" r="52" fill="rgba(24,95,165,0.3)" stroke="rgba(133,183,235,0.5)" stroke-width="1.5">
-        <animate attributeName="r" values="52;56;52" dur="3s" repeatCount="indefinite"/>
-      </circle>
-      <circle cx="240" cy="240" r="36" fill="rgba(24,95,165,0.6)" stroke="rgba(133,183,235,0.8)" stroke-width="1"/>
-      <text x="240" y="235" text-anchor="middle" fill="white" font-size="13" font-family="sans-serif" font-weight="600">i-link</text>
-      <text x="240" y="252" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9" font-family="sans-serif">IT PARTNER</text>
-      <line x1="240" y1="188" x2="240" y2="100" stroke="rgba(133,183,235,0.4)" stroke-width="1" stroke-dasharray="4 4"><animate attributeName="stroke-opacity" values="0.4;0.8;0.4" dur="2s" repeatCount="indefinite"/></line>
-      <circle cx="240" cy="82" r="30" fill="rgba(12,35,64,0.8)" stroke="rgba(133,183,235,0.6)" stroke-width="1.5"/>
-      <text x="240" y="78" text-anchor="middle" fill="white" font-size="18">💻</text>
-      <text x="240" y="96" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="8" font-family="sans-serif">IT-Support</text>
-      <line x1="292" y1="252" x2="370" y2="290" stroke="rgba(133,183,235,0.4)" stroke-width="1" stroke-dasharray="4 4"><animate attributeName="stroke-opacity" values="0.4;0.8;0.4" dur="2.5s" repeatCount="indefinite" begin="0.8s"/></line>
-      <circle cx="388" cy="300" r="30" fill="rgba(12,35,64,0.8)" stroke="rgba(133,183,235,0.6)" stroke-width="1.5"/>
-      <text x="388" y="296" text-anchor="middle" fill="white" font-size="18">🌐</text>
-      <text x="388" y="314" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="8" font-family="sans-serif">Websites</text>
-      <line x1="188" y1="252" x2="110" y2="290" stroke="rgba(133,183,235,0.4)" stroke-width="1" stroke-dasharray="4 4"><animate attributeName="stroke-opacity" values="0.4;0.8;0.4" dur="3s" repeatCount="indefinite" begin="1.5s"/></line>
-      <circle cx="92" cy="300" r="30" fill="rgba(12,35,64,0.8)" stroke="rgba(133,183,235,0.6)" stroke-width="1.5"/>
-      <text x="92" y="296" text-anchor="middle" fill="white" font-size="18">🔗</text>
-      <text x="92" y="314" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="8" font-family="sans-serif">SharePoint</text>
-    </svg>
+
+  <div class="hero-badge">Ihr digitaler Partner für KMU und Kleinunternehmen</div>
+
+  <h1>Ihre Verbindung zur <span>digitalen Welt</span></h1>
+
+  <p class="hero-sub">IT-Support, professionelle Websites und SharePoint-Lösungen – alles aus einer Hand. Persönlich, zuverlässig und auf Ihre Bedürfnisse zugeschnitten.</p>
+
+  <div class="hero-btns">
+    <a href="kontakt.html" class="btn-primary">Jetzt anfragen</a>
+    <a href="leistungen.html" class="btn-secondary">Leistungen entdecken</a>
+  </div>
+
+  <div class="hero-services">
+    <div class="hero-service"><span class="hero-service-icon">💻</span><span class="hero-service-text">IT-Support</span></div>
+    <div class="hero-service"><span class="hero-service-icon">🌐</span><span class="hero-service-text">Moderne Websites</span></div>
+    <div class="hero-service"><span class="hero-service-icon">🔗</span><span class="hero-service-text">SharePoint</span></div>
+    <div class="hero-service"><span class="hero-service-icon">⚡</span><span class="hero-service-text">Antwort innert 24h</span></div>
+    <div class="hero-service"><span class="hero-service-icon">🇨🇭</span><span class="hero-service-text">Standort Schweiz</span></div>
   </div>
 </section>
 
@@ -136,7 +205,7 @@
     <p style="font-size:17px;color:var(--gray);line-height:1.7;max-width:500px;margin:0 auto 40px;">Ich beantworte Ihre Fragen gerne – unverbindlich und persönlich.</p>
     <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
       <a href="kontakt.html" class="btn-primary">Jetzt Kontakt aufnehmen</a>
-      <a href="leistungen.html" style="background:var(--blue-dark);color:var(--white);padding:14px 32px;border-radius:8px;font-size:15px;font-weight:600;text-decoration:none;transition:opacity 0.2s;">Leistungen ansehen</a>
+      <a href="leistungen.html" style="background:var(--blue-dark);color:var(--white);padding:14px 32px;border-radius:8px;font-size:15px;font-weight:600;text-decoration:none;">Leistungen ansehen</a>
     </div>
   </div>
 </section>
