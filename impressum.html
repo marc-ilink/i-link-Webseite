@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impressum – i-link</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .container { max-width: 760px; margin: 60px auto; padding: 0 24px 80px; }
+    .page-title { font-size: 32px; font-weight: 800; color: var(--blue-dark); margin-bottom: 8px; }
+    .page-sub { font-size: 13px; color: var(--gray); margin-bottom: 48px; padding-bottom: 24px; border-bottom: 1px solid #E8E6E0; }
+    .section { margin-bottom: 36px; }
+    .section-title { font-size: 15px; font-weight: 700; color: var(--blue-main); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+    .section-title::before { content: ''; width: 4px; height: 16px; background: var(--blue-main); border-radius: 2px; display: block; }
+    .section p { font-size: 14px; color: var(--gray); line-height: 1.8; margin-bottom: 8px; }
+    .section a { color: var(--blue-main); text-decoration: none; }
+    .highlight { background: var(--blue-light); border-left: 3px solid var(--blue-main); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 16px 0; font-size: 13px; color: var(--anthrazit); line-height: 1.7; }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="#" class="nav-helpdesk" id="nav-helpdesk" onclick="(function(){window.location.href='mailto:'+ 'helpdesk'+ '@'+ 'i-link.ch';return false;})()">🎧 Helpdesk</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="leistungen.html">Leistungen</a></li>
+    <li><a href="ueber-mich.html">Über mich</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="kontakt.html" class="nav-cta">Kontakt</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span id="h1"></span><span id="h2"></span><span id="h3"></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="toggleMenu()">Home</a>
+  <a href="leistungen.html" onclick="toggleMenu()">Leistungen</a>
+  <a href="ueber-mich.html" onclick="toggleMenu()">Über mich</a>
+  <a href="portfolio.html" onclick="toggleMenu()">Portfolio</a>
+  <a href="kontakt.html" onclick="toggleMenu()" class="nav-cta">Kontakt</a>
+</div>
+
+<div style="padding-top:70px;">
+  <div class="container">
+    <h1 class="page-title">Impressum</h1>
+    <p class="page-sub">Gesetzlich vorgeschriebene Angaben gemäss Schweizer Recht</p>
+
+    <div class="section">
+      <div class="section-title">Kontakt & Firmenangaben</div>
+      <p><strong>Name:</strong> Marc Gabriel</p>
+      <p><strong>Firmenbezeichnung:</strong> i-link</p>
+      <p><strong>Rechtsform:</strong> Einzelunternehmen</p>
+      <p><strong>Standort:</strong> 6312 Steinhausen / ZG</p>
+      <p><strong>Website:</strong> <a href="https://www.i-link.ch">www.i-link.ch</a></p>
+      <p><strong>E-Mail:</strong> <a href="mailto:kontakt@i-link.ch">kontakt@i-link.ch</a></p>
+    </div>
+
+    <div class="section">
+      <div class="section-title">UID & Mehrwertsteuer</div>
+      <div class="highlight">UID-Nummer und MWST-Nummer werden nach der Gewerbeanmeldung ergänzt.</div>
+      <p><strong>MWST:</strong> Nicht MWST-pflichtig (Umsatz unter CHF 100'000)</p>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Tätigkeitsbereich</div>
+      <p><strong>Leistungen:</strong> IT-Support, Websites, SharePoint-Lösungen</p>
+      <p><strong>Zielgruppe:</strong> KMU und Kleinunternehmen in der Schweiz</p>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Haftungsausschluss</div>
+      <p>Der Betreiber dieser Website übernimmt keine Gewähr für die Richtigkeit, Vollständigkeit und Aktualität der bereitgestellten Inhalte. Die Nutzung der Inhalte erfolgt auf eigene Gefahr. Für externe Links wird keine Haftung übernommen.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Datenschutz</div>
+      <p>Die Bearbeitung von Personendaten erfolgt gemäss dem Schweizer Datenschutzgesetz (DSG). Weitere Informationen finden Sie in unserer <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Urheberrecht</div>
+      <p>Alle Inhalte dieser Website sind urheberrechtlich geschützt. Eine Verwendung ohne ausdrückliche Genehmigung von Marc Gabriel – i-link ist nicht gestattet.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">i<span>-</span>link</div>
+  <div class="footer-copy">© 2026 Marc Gabriel – i-link · 6312 Steinhausen / ZG</div>
+  <div class="footer-links">
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
